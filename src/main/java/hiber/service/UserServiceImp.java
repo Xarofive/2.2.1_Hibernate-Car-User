@@ -40,7 +40,7 @@ public class UserServiceImp implements UserService {
                 return user;
             }
         }
-        throw new NoSuchElementException();
+        return null;
     }
 
 }
