@@ -34,13 +34,7 @@ public class UserServiceImp implements UserService {
     @Transactional
     @Override
     public User getUserByCar(String model, int series) {
-        List<User> userList = userDao.listUsers();
-        for (User user : userList) {
-            if (user.getCar() != null && user.getCar().getModel().equals(model) && user.getCar().getSeries() == series) {
-                return user;
-            }
-        }
-        return null;
+        return userDao.getUserByCar(model, series);
     }
 
 }
