@@ -17,14 +17,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
     @Column(name = "email")
     private String email;
 
@@ -45,6 +37,14 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.car = car;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
         this.car = car;
     }
 
