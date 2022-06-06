@@ -11,32 +11,32 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-   private final SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-   @Autowired
-   public UserDaoImp(SessionFactory sessionFactory) {
-      this.sessionFactory = sessionFactory;
-   }
+    @Autowired
+    public UserDaoImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
-   @Override
-   public void add(User user) {
-      sessionFactory.getCurrentSession().save(user);
-   }
+    @Override
+    public void add(User user) {
+        sessionFactory.getCurrentSession().save(user);
+    }
 
-   @Override
-   @SuppressWarnings("unchecked")
-   public List<User> listUsers() {
-      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("FROM User");
-      return query.getResultList();
-   }
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> listUsers() {
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User");
+        return query.getResultList();
+    }
 
-   @Override
-   @SuppressWarnings("unchecked")
-   public User getUserByCar(String model, int series) {
-      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("FROM User e WHERE e.car = (SELECT c.id FROM Car c WHERE c.model = :model AND c.series = :series)");
-      query.setParameter("model", model);
-      query.setParameter("series", series);
-      return query.getSingleResult();
-   }
+    @Override
+    @SuppressWarnings("unchecked")
+    public User getUserByCar(String model, int series) {
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User e WHERE e.car = (SELECT c.id FROM Car c WHERE c.model = :model AND c.series = :series)");
+        query.setParameter("model", model);
+        query.setParameter("series", series);
+        return query.getSingleResult();
+    }
 
 }
