@@ -18,15 +18,20 @@ public class Car {
     @Column(name = "series")
     private int series;
 
+    public Car() {
+    }
+
+    public Car(String model, int series) {
+        this.model = model;
+        this.series = series;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Car() {
     }
 
     public String getModel() {
@@ -42,11 +47,6 @@ public class Car {
     }
 
     public void setSeries(int series) {
-        this.series = series;
-    }
-
-    public Car(String model, int series) {
-        this.model = model;
         this.series = series;
     }
 
